@@ -41,6 +41,9 @@
                                         <rect key="frame" x="0.0" y="90" width="126" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Zona 3"/>
+                                        <connections>
+                                            <action selector="zona3ButtonePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gU8-c9-Wd9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -54,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unesite Registarsku Tablicu" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5go-bM-SQD">
-                                <rect key="frame" x="16" y="147.5" width="288" height="80"/>
+                                <rect key="frame" x="16" y="135.5" width="288" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="f3V-a9-5Q4"/>
                                 </constraints>
@@ -62,7 +65,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPs-WC-afT">
-                                <rect key="frame" x="80" y="98.5" width="160" height="31"/>
+                                <rect key="frame" x="80" y="248.5" width="160" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="vMf-01-xDE"/>
                                 </constraints>
@@ -72,6 +75,14 @@
                                     <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7me-Jo-qzy"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Grad" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjy-zz-E0s">
+                                <rect key="frame" x="85" y="74.5" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GYh-jT-h01"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,16 +90,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0i7-0l-Y67" secondAttribute="trailing" constant="16" id="0aQ-sx-8rb"/>
                             <constraint firstItem="36Q-de-sEW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1BI-MK-xel"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5go-bM-SQD" secondAttribute="trailing" constant="16" id="3hP-ib-7Uh"/>
-                            <constraint firstItem="5go-bM-SQD" firstAttribute="top" secondItem="uPs-WC-afT" secondAttribute="bottom" constant="18" id="KVL-ua-SOW"/>
+                            <constraint firstItem="uPs-WC-afT" firstAttribute="top" secondItem="5go-bM-SQD" secondAttribute="bottom" constant="33" id="4Ys-j9-RY9"/>
+                            <constraint firstItem="pjy-zz-E0s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OQ7-PH-zXa"/>
                             <constraint firstItem="5go-bM-SQD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VZ4-aW-QDt"/>
                             <constraint firstItem="0i7-0l-Y67" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="VdR-cj-U2q"/>
                             <constraint firstItem="0i7-0l-Y67" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dG9-B1-e0x"/>
+                            <constraint firstItem="5go-bM-SQD" firstAttribute="top" secondItem="pjy-zz-E0s" secondAttribute="bottom" constant="27" id="g7X-wu-jrd"/>
                             <constraint firstItem="uPs-WC-afT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mRt-BV-Zxp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="36Q-de-sEW" secondAttribute="bottom" constant="60" id="pN9-ax-cYM"/>
-                            <constraint firstItem="5go-bM-SQD" firstAttribute="top" secondItem="0i7-0l-Y67" secondAttribute="bottom" constant="100" id="w87-mi-YuW"/>
+                            <constraint firstItem="pjy-zz-E0s" firstAttribute="top" secondItem="0i7-0l-Y67" secondAttribute="bottom" constant="27" id="tw5-4G-MoW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cityPickerField" destination="pjy-zz-E0s" id="iCB-Fu-5lp"/>
                         <outlet property="plateNumberInput" destination="5go-bM-SQD" id="xGs-sm-Sh0"/>
                     </connections>
                 </viewController>

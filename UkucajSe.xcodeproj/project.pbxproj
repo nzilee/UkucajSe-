@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93BEABB22943E771009AEF12 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEABB12943E771009AEF12 /* Cities.swift */; };
+		93BEABB42943F490009AEF12 /* CitiesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEABB32943F490009AEF12 /* CitiesMenu.swift */; };
 		93C3EB072937FEA800F06C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EB062937FEA800F06C9F /* AppDelegate.swift */; };
 		93C3EB092937FEA800F06C9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EB082937FEA800F06C9F /* SceneDelegate.swift */; };
 		93C3EB0B2937FEA800F06C9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EB0A2937FEA800F06C9F /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93BEABB12943E771009AEF12 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		93BEABB32943F490009AEF12 /* CitiesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesMenu.swift; sourceTree = "<group>"; };
 		93C3EB032937FEA800F06C9F /* UkucajSe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkucajSe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C3EB062937FEA800F06C9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93C3EB082937FEA800F06C9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		93C3EB052937FEA800F06C9F /* UkucajSe */ = {
 			isa = PBXGroup;
 			children = (
+				93BEABB12943E771009AEF12 /* Cities.swift */,
 				93C3EB062937FEA800F06C9F /* AppDelegate.swift */,
 				93C3EB082937FEA800F06C9F /* SceneDelegate.swift */,
 				93C3EB0A2937FEA800F06C9F /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				93C3EB0F2937FEAB00F06C9F /* Assets.xcassets */,
 				93C3EB112937FEAB00F06C9F /* LaunchScreen.storyboard */,
 				93C3EB142937FEAB00F06C9F /* Info.plist */,
+				93BEABB32943F490009AEF12 /* CitiesMenu.swift */,
 			);
 			path = UkucajSe;
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BEABB22943E771009AEF12 /* Cities.swift in Sources */,
 				93C3EB0B2937FEA800F06C9F /* ViewController.swift in Sources */,
 				93C3EB072937FEA800F06C9F /* AppDelegate.swift in Sources */,
+				93BEABB42943F490009AEF12 /* CitiesMenu.swift in Sources */,
 				93C3EB092937FEA800F06C9F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
