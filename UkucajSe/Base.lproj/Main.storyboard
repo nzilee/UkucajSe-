@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Grad" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjy-zz-E0s">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Grad" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjy-zz-E0s">
                                 <rect key="frame" x="85" y="74.5" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="GYh-jT-h01"/>
@@ -33,13 +33,16 @@
                                     <action selector="cityIsChosen:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="wfc-BX-WCd"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unesite Registarsku Tablicu" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5go-bM-SQD">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unesite Registarsku Oznaku" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5go-bM-SQD">
                                 <rect key="frame" x="16" y="135.5" width="288" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="f3V-a9-5Q4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="plateNumberInputEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="zSz-Dg-Pwa"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPs-WC-afT">
                                 <rect key="frame" x="80" y="248.5" width="160" height="31"/>
@@ -52,64 +55,97 @@
                                     <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7me-Jo-qzy"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="36Q-de-sEW">
-                                <rect key="frame" x="97" y="387" width="126" height="121"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="PHA-JU-f91">
+                                <rect key="frame" x="16" y="395" width="288" height="153"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1Zb-o7-d3z">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Zona 1"/>
-                                        <connections>
-                                            <action selector="Zona1ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AcC-Al-QdI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yqN-ks-6m9">
-                                        <rect key="frame" x="0.0" y="45" width="126" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Zona 2"/>
-                                        <connections>
-                                            <action selector="zona2ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHR-6D-Kme"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPB-fN-2LG">
-                                        <rect key="frame" x="0.0" y="90" width="126" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Zona 3"/>
-                                        <connections>
-                                            <action selector="zona3ButtonePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gU8-c9-Wd9"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="21r-fl-D1o">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="37"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zona 1 - 60rsd 1 sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-3h-f1P">
+                                                <rect key="frame" x="0.0" y="8.5" width="187" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zg5-69-vcj">
+                                                <rect key="frame" x="202" y="3" width="86" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Zona 1"/>
+                                                <connections>
+                                                    <action selector="zone1ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qc3-HX-1id"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jrn-VW-9K6">
+                                        <rect key="frame" x="0.0" y="64" width="288" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zona 2 - 45rsd 1 sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFA-qI-Cc5">
+                                                <rect key="frame" x="0.0" y="5.5" width="186" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yqN-ks-6m9">
+                                                <rect key="frame" x="201" y="0.0" width="87" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Zona 2"/>
+                                                <connections>
+                                                    <action selector="zone2ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J1E-Mw-BXU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dh4-0l-0QF">
+                                        <rect key="frame" x="0.0" y="122" width="288" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zona 3 - 90rsd 1 sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-Gc-413">
+                                                <rect key="frame" x="0.0" y="5.5" width="186" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1Zb-o7-d3z">
+                                                <rect key="frame" x="201" y="0.0" width="87" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Zona 3"/>
+                                                <connections>
+                                                    <action selector="zone3ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uH4-sj-bDx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="36Q-de-sEW" secondAttribute="height" multiplier="18:23" id="W6H-ml-5N4"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0i7-0l-Y67" secondAttribute="trailing" constant="16" id="0aQ-sx-8rb"/>
-                            <constraint firstItem="36Q-de-sEW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1BI-MK-xel"/>
+                            <constraint firstItem="PHA-JU-f91" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3bP-D6-A9I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5go-bM-SQD" secondAttribute="trailing" constant="16" id="3hP-ib-7Uh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PHA-JU-f91" secondAttribute="bottom" constant="20" id="3tt-aA-85F"/>
                             <constraint firstItem="uPs-WC-afT" firstAttribute="top" secondItem="5go-bM-SQD" secondAttribute="bottom" constant="33" id="4Ys-j9-RY9"/>
                             <constraint firstItem="pjy-zz-E0s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OQ7-PH-zXa"/>
+                            <constraint firstItem="PHA-JU-f91" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SWm-QL-Hl3"/>
                             <constraint firstItem="5go-bM-SQD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VZ4-aW-QDt"/>
                             <constraint firstItem="0i7-0l-Y67" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="VdR-cj-U2q"/>
                             <constraint firstItem="0i7-0l-Y67" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dG9-B1-e0x"/>
                             <constraint firstItem="5go-bM-SQD" firstAttribute="top" secondItem="pjy-zz-E0s" secondAttribute="bottom" constant="27" id="g7X-wu-jrd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PHA-JU-f91" secondAttribute="trailing" constant="16" id="mBh-JY-5SL"/>
                             <constraint firstItem="uPs-WC-afT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mRt-BV-Zxp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="36Q-de-sEW" secondAttribute="bottom" constant="60" id="pN9-ax-cYM"/>
                             <constraint firstItem="pjy-zz-E0s" firstAttribute="top" secondItem="0i7-0l-Y67" secondAttribute="bottom" constant="27" id="tw5-4G-MoW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityPickerField" destination="pjy-zz-E0s" id="iCB-Fu-5lp"/>
                         <outlet property="plateNumberInput" destination="5go-bM-SQD" id="xGs-sm-Sh0"/>
-                        <outlet property="zone1Button" destination="1Zb-o7-d3z" id="zJJ-Kz-F01"/>
+                        <outlet property="zone1Button" destination="zg5-69-vcj" id="hmb-nk-vTx"/>
                         <outlet property="zone2Button" destination="yqN-ks-6m9" id="Yhw-m9-qfM"/>
-                        <outlet property="zone3Button" destination="bPB-fN-2LG" id="WqE-o8-Hov"/>
+                        <outlet property="zone3Button" destination="1Zb-o7-d3z" id="JeB-81-OiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,12 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var plateNumberInput: UITextField!
     @IBOutlet weak var cityPickerField: UITextField!
     @IBOutlet weak var zone1Button: UIButton!
     @IBOutlet weak var zone2Button: UIButton!
     @IBOutlet weak var zone3Button: UIButton!
+    var didChooseCity: Bool = false
+    var didInputRegistration: Bool = false
+    var isPlateNumberFormatted = false
+    var chosenCity: City?
     var plateNumber = ""
     let cities = [
         gradNis,
@@ -29,6 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        plateNumberInput.delegate = self
         plateNumberInput.textAlignment = .center
         plateNumberInput.selectedTextRange = nil
         
@@ -40,8 +45,24 @@ class ViewController: UIViewController {
         
     }
     
-    func hideKeyboard() {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         plateNumberInput.resignFirstResponder()
+        return true
+    }
+    
+    func plateNumberFormatted() -> String {
+        var plateNumberFormatted = plateNumber
+        
+        if isPlateNumberFormatted == false {
+            let plateNumberThirdIndex = plateNumberFormatted.index(plateNumberFormatted.startIndex, offsetBy: 2)
+            let plateNumberThirdToLastIndex = plateNumberFormatted.index(plateNumberFormatted.endIndex, offsetBy: -1)
+
+            plateNumberFormatted.insert("-", at: plateNumberThirdIndex)
+            plateNumberFormatted.insert("-", at: plateNumberThirdToLastIndex)
+            
+            isPlateNumberFormatted = true
+        }
+        return plateNumberFormatted.uppercased()
     }
     
     func sendSMS(with plateNum: String, to number: Int) {
@@ -50,71 +71,65 @@ class ViewController: UIViewController {
         UIApplication.shared.open(URL(string: strURL)!, options: [:], completionHandler: nil)
     }
     
-//    func pickerWarning() {
-//        cityPickerField.backgroundColor = .red
-//        cityPickerField.text = "Izaberite grad"
-//    }
+    func pickerFieldAndButtonsAreDefault() {
+        cityPickerField.backgroundColor = .clear
+        zone1Button.isEnabled = true
+        zone2Button.isEnabled = true
+        zone3Button.isEnabled = true
+    }
     
     @IBAction func cityIsChosen(_ sender: UITextField) {
-        if cityPickerField.text == "" {
+        switch cityPickerField.text{
+        case gradNis.name:
+            chosenCity = gradNis
+            didChooseCity = true
+            pickerFieldAndButtonsAreDefault()
+        case gradBeograd.name:
+            chosenCity = gradBeograd
+            didChooseCity = true
+            pickerFieldAndButtonsAreDefault()
+        case gradNoviSad.name:
+            chosenCity = gradNoviSad
+            didChooseCity = true
+            pickerFieldAndButtonsAreDefault()
+        case "":
+            chosenCity = nil
             cityPickerField.backgroundColor = .red
             cityPickerField.text = "Izaberite grad"
             zone1Button.isEnabled = false
             zone2Button.isEnabled = false
             zone3Button.isEnabled = false
-        } else {
-            cityPickerField.backgroundColor = .clear
-            zone1Button.isEnabled = true
-            zone2Button.isEnabled = true
-            zone3Button.isEnabled = true
+            didChooseCity = false
+        default:
+            cityPickerField.text = "Izaberite grad"
         }
     }
     
     @IBAction func zone1ButtonPressed(_ sender: UIButton) {
-        switch cityPickerField.text{
-        case gradNis.name:
-            sendSMS(with: plateNumber, to: gradNis.zone1.number)
-        case gradBeograd.name:
-            sendSMS(with: plateNumber, to: gradBeograd.zone1.number)
-        case gradNoviSad.name:
-            sendSMS(with: plateNumber, to: gradNoviSad.zone1.number)
-        default:
-            cityPickerField.text = "Izaberite grad"
-        }
+        sendSMS(with: plateNumber, to: chosenCity!.zone1.number)
         print(plateNumber)
     }
     
     @IBAction func zone2ButtonPressed(_ sender: UIButton) {
-        switch cityPickerField.text{
-        case gradNis.name:
-            sendSMS(with: plateNumber, to: gradNis.zone2.number)
-        case gradBeograd.name:
-            sendSMS(with: plateNumber, to: gradBeograd.zone2.number)
-        case gradNoviSad.name:
-            sendSMS(with: plateNumber, to: gradNoviSad.zone2.number)
-        default:
-            cityPickerField.text = "Izaberite grad"
-        }
+        sendSMS(with: plateNumber, to: chosenCity!.zone2.number)
         print(plateNumber)
     }
 
     @IBAction func zone3ButtonPressed(_ sender: UIButton) {
-        switch cityPickerField.text{
-        case gradNis.name:
-            sendSMS(with: plateNumber, to: gradNis.zone3.number)
-        case gradBeograd.name:
-            sendSMS(with: plateNumber, to: gradBeograd.zone3.number)
-        case gradNoviSad.name:
-            sendSMS(with: plateNumber, to: gradNoviSad.zone3.number)
-        default:
-            cityPickerField.text = "Izaberite grad"
-        }
+        sendSMS(with: plateNumber, to: chosenCity!.zone3.number)
         print(plateNumber)
+    }
+    
+    @IBAction func plateNumberInputEnded(_ sender: UITextField) {
+        plateNumber = String(plateNumberInput.text!)
+        didInputRegistration = true
+        plateNumberInput.text = plateNumberFormatted()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         plateNumber = String(plateNumberInput.text!)
-        hideKeyboard()
+        plateNumberInput.resignFirstResponder()
+        didInputRegistration = true
     }
     
 }
